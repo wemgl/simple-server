@@ -1,6 +1,7 @@
 body {
+    font-family: 'Noto Sans', sans-serif;
     background-color: #76E1FE;
-    color: #FFF;
+    color: #1A51A5;
 }
 
 .hidden {
@@ -8,13 +9,8 @@ body {
 }
 
 .salutation {
-    font-family: 'Noto Sans', sans-serif;
     font-size: 4rem;
     text-align: center;
-}
-
-.salutation__greeting {
-    font-family: 'Noto Sans', sans-serif;
 }
 
 .salutation__message {
