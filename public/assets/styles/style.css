@@ -1,0 +1,23 @@
+body {
+    background-color: #76E1FE;
+    color: #FFF;
+}
+
+.hidden {
+    display: none;
+}
+
+.salutation {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.salutation__greeting {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.salutation__message {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bold;
+}

@@ -1,0 +1,18 @@
+{{define "body"}}
+    <h1 class="hidden">Simple Server Body</h1>
+    <main>
+        <h1 class="hidden">Main Content</h1>
+        <article>
+            <h2 class="hidden">Main Article</h2>
+            <section>
+                <h3 class="hidden">Main section</h3>
+                <p class="salutation">
+                    <span class="salutation__greeting">{{.Greeting}}</span>,
+                    <span class="salutation__message">{{.Message}}</span>!
+                </p>
+                <div class="js-container"></div>
+            </section>
+        </article>
+    </main>
+    <script type="text/javascript" src="/public/assets/scripts/main.js"></script>
+{{end}}
