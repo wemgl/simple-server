@@ -7,11 +7,9 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 	"time"
 )
-
-// port exposes the simple server on port 8080
-const port = 8080
 
 // templates parses the specified templates and caches the parsed results
 // to help speed up response times.
@@ -59,7 +57,13 @@ func main() {
 	mux := http.NewServeMux()
 	mux.Handle("/public/", logging(public()))
 	mux.Handle("/", logging(index()))
-	addr := fmt.Sprintf(":%d", port)
+
+	port, ok := os.LookupEnv("PORT")
+	if !ok {
+		port = "8080"
+	}
+
+	addr := fmt.Sprintf(":%s", port)
 	server := http.Server{
 		Addr:         addr,
 		Handler:      mux,
