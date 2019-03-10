@@ -1,3 +1,5 @@
+// Package main starts the simple server on port and serves HTML,
+// CSS, and JavaScript to clients.
 package main
 
 import (
@@ -8,10 +10,15 @@ import (
 	"time"
 )
 
+// port exposes the simple server on port 8080
 const port = 8080
 
+// templates parses the specified templates and caches the parsed results
+// to help speed up response times.
 var templates = template.Must(template.ParseFiles("./templates/base.html", "./templates/body.html"))
 
+// logging is middleware for wrapping any handler we want to track response
+// times for and to see what resources are requested.
 func logging(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		start := time.Now()
@@ -22,6 +29,7 @@ func logging(next http.Handler) http.Handler {
 	})
 }
 
+// index is the handler responsible for rending the index page for the site.
 func index() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
@@ -42,6 +50,7 @@ func index() http.Handler {
 	})
 }
 
+// public serves static assets such as CSS and JavaScript to clients.
 func public() http.Handler {
 	return http.StripPrefix("/public/", http.FileServer(http.Dir("./public")))
 }
@@ -58,7 +67,7 @@ func main() {
 		WriteTimeout: 15 * time.Second,
 		IdleTimeout:  15 * time.Second,
 	}
-	log.Print("main: running simple server on port ", port)
+	log.Println("main: running simple server on port", port)
 	if err := server.ListenAndServe(); err != nil {
 		log.Fatalf("main: couldn't start simple server: %v\n", err)
 	}
