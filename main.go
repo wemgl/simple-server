@@ -32,13 +32,13 @@ func index() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		b := struct {
-			Title    template.HTML
-			Greeting string
-			Message  string
+			Title        template.HTML
+			BusinessName string
+			Slogan       string
 		}{
-			Title:    template.HTML("Go &verbar; Simple Server"),
-			Greeting: "Hello",
-			Message:  "世界",
+			Title:        template.HTML("Business &verbar; Landing"),
+			BusinessName: "Business,",
+			Slogan:       "we get things done.",
 		}
 		err := templates.ExecuteTemplate(w, "base", &b)
 		if err != nil {

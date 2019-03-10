@@ -1,14 +1,26 @@
 {{define "body"}}
     <h1 class="hidden">Simple Server Body</h1>
+    <header class="header">
+        <h1 class="hidden">Header</h1>
+        <img class="logo" src="/public/assets/images/logo.svg">
+        <nav class="navigation">
+            <h2 class="hidden">Navigation</h2>
+            <ul class="navigation__items">
+                <li class="navigation__item">Home</li>
+                <li class="navigation__item">About</li>
+                <li class="navigation__item">Contact</li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <h1 class="hidden">Main Content</h1>
-        <article>
+        <article class="hero">
             <h2 class="hidden">Main Article</h2>
-            <section>
+            <section class="hero__text">
                 <h3 class="hidden">Main section</h3>
-                <p class="salutation">
-                    <span class="salutation__greeting">{{.Greeting}}</span>,
-                    <span class="salutation__message">{{.Message}}</span>!
+                <p class="salutation salutation--bg">
+                    <span class="salutation__greeting">{{.BusinessName}}</span>
+                    <span class="salutation__message">{{.Slogan}}</span>
                 </p>
                 <div class="js-container"></div>
             </section>
